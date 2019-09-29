@@ -2,13 +2,13 @@ from setuptools import setup, find_packages
 
 setup(
     name = "scrapy-googlelogin",
-    version = "0.0.2",
+    version = "0.0.7",
     keywords = ("pip", "datacanvas", "eds", "xiaoh"),
     description = "google login downloader middleware for scrapy",
     long_description = "google login downloader middleware for scrapy",
     license = "MIT Licence",
 
-    url = "http://gitdc.com",
+    url = "https://github.com/geek-dc/scrapy-googlelogin",
     author = "derekchan",
     author_email = "dchan0831@gmail.com",
 

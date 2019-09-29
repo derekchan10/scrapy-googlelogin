@@ -7,6 +7,7 @@ import pyotp
 
 class GoogleLoginDownloaderMiddleware(object):
     cookies = None
+    login_url = 'https://accounts.google.com/signin/v2/identifier?flowName=GlifWebSignIn&flowEntry=ServiceLogin'
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
@@ -25,8 +26,7 @@ class GoogleLoginDownloaderMiddleware(object):
         driver = request.meta.get('driver')
         if self.cookies == None:
 
-            print(spider.login_url)
-            driver.get(spider.login_url)
+            driver.get(self.login_url)
             WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.ID, 'headingText'))
             )
