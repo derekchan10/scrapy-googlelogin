@@ -1,0 +1,10 @@
+README.md
+setup.py
+scrapy-googlelogin/__init__.py
+scrapy-googlelogin/googlelogin.py
+scrapy-googlelogin/selenium.py
+scrapy_googlelogin.egg-info/PKG-INFO
+scrapy_googlelogin.egg-info/SOURCES.txt
+scrapy_googlelogin.egg-info/dependency_links.txt
+scrapy_googlelogin.egg-info/requires.txt
+scrapy_googlelogin.egg-info/top_level.txt

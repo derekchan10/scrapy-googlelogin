@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: scrapy-googlelogin
+Version: 0.0.2
+Summary: google login downloader middleware for scrapy
+Home-page: http://gitdc.com
+Author: derekchan
+Author-email: dchan0831@gmail.com
+License: MIT Licence
+Description: google login downloader middleware for scrapy
+Keywords: pip,datacanvas,eds,xiaoh
+Platform: any
