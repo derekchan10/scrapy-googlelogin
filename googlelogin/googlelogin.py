@@ -33,15 +33,15 @@ class GoogleLoginDownloaderMiddleware(object):
 
             print('start login...')
             driver.find_element(By.ID, 'identifierId').send_keys(spider.settings.get('GOOGLE_ACCOUNT'))
-            driver.find_element(By.CSS_SELECTOR, '#identifierNext > span > span').click()
+            driver.find_element(By.CSS_SELECTOR, '#identifierNext > div > span > span').click()
 
             print('account next...')
             WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "#passwordNext > span > span"))
+                EC.presence_of_element_located((By.CSS_SELECTOR, "#passwordNext > div > span > span"))
             )
 
             driver.find_element(By.CSS_SELECTOR, '#password > div.aCsJod.oJeWuf > div > div.Xb9hP > input').send_keys(spider.settings.get('GOOGLE_PWD'))
-            driver.execute_script('document.querySelector("#passwordNext > span > span").click()')
+            driver.execute_script('document.querySelector("#passwordNext > div > span > span").click()')
             print('pwd next...')
 
             try:
@@ -49,11 +49,11 @@ class GoogleLoginDownloaderMiddleware(object):
                     WebDriverWait(driver, 10).until(
                         EC.presence_of_element_located((By.ID, "totpPin"))
                     )
-
+                    driver.implicitly_wait(1)
                     totp = pyotp.TOTP(spider.settings.get('GOOGLE_OTPKEY'))
                     print('totp', totp.now())
                     driver.find_element(By.ID, 'totpPin').send_keys(totp.now())
-                    driver.execute_script('document.querySelector("#totpNext").click()')
+                    driver.execute_script('document.querySelector("#totpNext > div > span > span").click()')
             except:
                 pass
 

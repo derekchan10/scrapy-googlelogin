@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = "scrapy-googlelogin",
-    version = "0.0.7",
+    version = "0.1.2",
     keywords = ("pip", "datacanvas", "eds", "xiaoh"),
     description = "google login downloader middleware for scrapy",
     long_description = "google login downloader middleware for scrapy",
