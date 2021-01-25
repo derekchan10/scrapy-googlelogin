@@ -74,14 +74,14 @@ class GoogleLoginDownloaderMiddleware(object):
         driver.get(request.url)
         if (hasattr(spider, 'iframe_selector')):
             WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, getattr(spider, 'iframe_selector')))
+                EC.visibility_of_element_located((By.CSS_SELECTOR, getattr(spider, 'iframe_selector')))
             )
 
             iframe = driver.find_element(By.CSS_SELECTOR, getattr(spider, 'iframe_selector'))
             driver.switch_to.frame(iframe)
 
         WebDriverWait(driver, 20).until(
-            EC.presence_of_element_located((By.CSS_SELECTOR, spider.css_selector))
+            EC.visibility_of_element_located((By.CSS_SELECTOR, spider.css_selector))
         )
 
         body = str.encode(driver.find_element(By.TAG_NAME, 'html').get_attribute('outerHTML'))
