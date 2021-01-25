@@ -28,7 +28,7 @@ class GoogleLoginDownloaderMiddleware(object):
 
             driver.get(self.login_url)
             WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.ID, 'headingText'))
+                EC.visibility_of_element_located((By.ID, 'headingText'))
             )
 
             print('start login...')
@@ -37,7 +37,7 @@ class GoogleLoginDownloaderMiddleware(object):
 
             print('account next...')
             WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "#passwordNext > div > button"))
+                EC.visibility_of_element_located((By.CSS_SELECTOR, "#passwordNext > div > button"))
             )
 
             driver.find_element(By.CSS_SELECTOR, '#password > div.aCsJod.oJeWuf > div > div.Xb9hP > input').send_keys(spider.settings.get('GOOGLE_PWD'))
@@ -47,7 +47,7 @@ class GoogleLoginDownloaderMiddleware(object):
             try:
                 if(spider.settings.get('GOOGLE_OTPKEY')):
                     WebDriverWait(driver, 10).until(
-                        EC.presence_of_element_located((By.ID, "totpPin"))
+                        EC.visibility_of_element_located((By.ID, "totpPin"))
                     )
                     driver.implicitly_wait(1)
                     totp = pyotp.TOTP(spider.settings.get('GOOGLE_OTPKEY'))
@@ -58,7 +58,7 @@ class GoogleLoginDownloaderMiddleware(object):
                 pass
 
             WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "figure"))
+                EC.visibility_of_element_located((By.CSS_SELECTOR, "figure"))
             )
 
             WebDriverWait(driver, 20).until(
