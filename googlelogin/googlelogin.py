@@ -57,9 +57,7 @@ class GoogleLoginDownloaderMiddleware(object):
             except:
                 pass
 
-            WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.CSS_SELECTOR, "div.yLceid"))
-            )
+            time.sleep(5)
 
             WebDriverWait(driver, 20).until(
                 element_has_content(driver.find_element(By.TAG_NAME, 'h1').get_attribute('innerHTML'), spider.settings.get('GOOGLE_NAME'))
